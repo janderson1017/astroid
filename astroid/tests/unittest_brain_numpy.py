@@ -45,18 +45,8 @@ class NumpyBrainFunctionReturningArrayTest(SubTestWrapper):
     """
     Test that calls to numpy functions returning arrays are correctly inferred
     """
-    numpy_functions = (("array", "[1, 2]"),
-                       ("linspace", "1, 100"),
-                       ('empty_like', "[1, 2]"),
-                       ('logical_or', "[1, 2]", "[1, 2]"),
-                       ('logical_xor', "[1, 2]", "[1, 2]"),
-                       ('logical_and', "[1, 2]", "[1, 2]"),
-                       ('dot', "[1, 2]", "[1, 2]"),
-                       ('vdot', "[1, 2]", "[1, 2]"),
-                       ('concatenate', "([1, 2], [1, 2])"),
-                       ('inner', "[1, 2]", "[1, 2]"),
-                       ('where', '[True, False]', "[1, 2]", "[2, 1]"),
-                       ('sum', '[[1, 2], [2, 1]]', "axis=0")
+    numpy_functions = (
+                       ('sum', '[[1, 2], [2, 1]]', "axis=0"),
                        )
 
     def _inferred_numpy_func_call(self, func_name, *func_args):
